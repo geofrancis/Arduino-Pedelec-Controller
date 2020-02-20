@@ -32,7 +32,7 @@ boolean menu_changed=false;
 /*
 Layout:
     ├── [Ausschalten]              (only shown when no button is set to ACTION_SHUTDOWN_SYSTEM)
-    ├── Anzeige
+    ├── Display
     │   ├── Reset Wh
     │   ├── Reset KM
     │   ├── Graf. an/              (only for Nokia displays)
@@ -60,57 +60,57 @@ MenuSystem menu_system;
 static const char desc_main[] PROGMEM = "";
 static Menu menu_main(desc_main);
 
-static const char desc_display[] PROGMEM = "Anzeige ->";
+static const char desc_display[] PROGMEM = "Display ->";
 static Menu menu_display(desc_display);
 
 static const char desc_display_reset_wh[] PROGMEM = "Reset Wh";
 static MenuItem m_display_reset_wh(desc_display_reset_wh);
 
-static const char desc_display_reset_km[] PROGMEM = "Reset KM";
+static const char desc_display_reset_km[] PROGMEM = "Reset mi";
 static MenuItem m_display_reset_km(desc_display_reset_km);
 
 #if (DISPLAY_TYPE & DISPLAY_TYPE_NOKIA)
-static const char desc_display_graphical_onoff[] PROGMEM = "Graf. an/aus";
+static const char desc_display_graphical_onoff[] PROGMEM = "Disp. on/off";
 static MenuItem m_display_graphical_onoff(desc_display_graphical_onoff);
 #endif
 
 #ifdef SUPPORT_DISPLAY_BACKLIGHT
-static const char desc_display_backlight_on[] PROGMEM = "Beleuchtung an";
+static const char desc_display_backlight_on[] PROGMEM = "Blight on";
 static MenuItem m_display_backlight_on(desc_display_backlight_on);
 #elif (DISPLAY_TYPE & DISPLAY_TYPE_16X2_SERIAL)
-static const char desc_display_backlight_off[] PROGMEM = "Beleucht. aus";
+static const char desc_display_backlight_off[] PROGMEM = "Blight. off";
 static MenuItem m_display_backlight_off(desc_display_backlight_off);
 #endif
 
-static const char desc_main_lights_onoff[] PROGMEM = "Licht an/aus";
+static const char desc_main_lights_onoff[] PROGMEM = "Lights on/off";
 static MenuItem m_main_lights_onoff(desc_main_lights_onoff);
 
-static const char desc_main_bt_onoff[] PROGMEM = "BT an/aus";
+static const char desc_main_bt_onoff[] PROGMEM = "BT on/off";
 static MenuItem m_main_bt_onoff(desc_main_bt_onoff);
 
-static const char desc_main_shutdown[] PROGMEM = "Ausschalten";
+static const char desc_main_shutdown[] PROGMEM = "shutdown";
 static MenuItem m_main_shutdown(desc_main_shutdown);
 
 static const char desc_main_profile[] PROGMEM = "Profil 1<>2";
 static MenuItem m_main_profile(desc_main_profile);
 
 #ifdef SUPPORT_FIRST_AID_MENU
-static const char desc_misc[] PROGMEM = "Sonstiges ->";
+static const char desc_misc[] PROGMEM = "Other ->";
 static Menu menu_misc(desc_misc);
 
-static const char desc_first_aid[] PROGMEM = "Nothilfe ->";
+static const char desc_first_aid[] PROGMEM = "Faults ->";
 static Menu menu_first_aid(desc_first_aid);
 
-static const char desc_first_aid_ignore_break[] PROGMEM = "Ign. Bremse";
+static const char desc_first_aid_ignore_break[] PROGMEM = "Ign. Brake";
 static MenuItem m_first_aid_ignore_break(desc_first_aid_ignore_break);
 
-static const char desc_first_aid_ignore_pas[] PROGMEM = "Ign. Treten";
+static const char desc_first_aid_ignore_pas[] PROGMEM = "Ign. PAS";
 static MenuItem m_first_aid_ignore_pas(desc_first_aid_ignore_pas);
 
-static const char desc_first_aid_ignore_speed[] PROGMEM = "Ign. Tacho";
+static const char desc_first_aid_ignore_speed[] PROGMEM = "Ign. Speed";
 static MenuItem m_first_aid_ignore_speed(desc_first_aid_ignore_speed);
 
-static const char desc_first_aid_ignore_throttle[] PROGMEM = "Ign. Gasgr.";
+static const char desc_first_aid_ignore_throttle[] PROGMEM = "Ign. Throttle.";
 static MenuItem m_first_aid_ignore_throttle(desc_first_aid_ignore_throttle);
 
 static const char desc_first_aid_ignore_poti[] PROGMEM = "Ignore Poti";
@@ -124,7 +124,7 @@ static MenuItem m_first_aid_dec_poti(desc_first_aid_dec_poti);
 #endif
 
 // Universally used "go back" menu entry
-static const char desc_go_back[] PROGMEM = "Zurueck ->";
+static const char desc_go_back[] PROGMEM = "Back ->";
 static MenuItem m_go_back(desc_go_back);
 
 static void handle_reset_wh(MenuItem* p_menu_item)

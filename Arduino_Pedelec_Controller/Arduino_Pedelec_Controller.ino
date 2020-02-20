@@ -174,7 +174,7 @@ const int switch_disp_2 = 12;        //second Display switch with Nokia-Display 
 #endif
 #endif
 #if HARDWARE_REV >= 20
-const int voltage_in = A14;           //Voltage read-Pin
+0const int voltage_in = A14;           //Voltage read-Pin
 const int fet_out = 38;              //FET: Pull high to switch off
 const int current_in = A15;           //Current read-Pin
 const int option_pin = A2;            //Analog option
@@ -1197,7 +1197,7 @@ void speed_change()    //Wheel Sensor Change------------------------------------
       ++odo;
 #if defined(SUPPORT_BMP085) || defined(SUPPORT_DSPC01)
 //slope-stuff start-------------------------------
-      slope=0.98*slope+2*(altitude-last_altitude)/wheel_circumference;
+      slope=0.98*slope+2*(altitude-last_altitude)/wheel_circumference/;
       last_altitude=altitude;
 //slope-stuff end---------------------------------
 #endif    

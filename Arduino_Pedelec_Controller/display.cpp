@@ -195,7 +195,7 @@ void display_show_welcome_msg()
     }
 
     lcd.print(total_km);
-    lcd.print(MY_F(" km"));
+    lcd.print(MY_F(" Mi"));
 #ifdef SUPPORT_BATTERY_CHARGE_COUNTER    
     lcd.setCursor(0, 4);
     lcd.print(charge_count);
@@ -355,7 +355,7 @@ static void display_16x2_view_main()
     if (spd<10)
     {lcd.print(MY_F(" "));}
     lcd.print(spd,0);
-    lcd.print(MY_F(" km/h  "));
+    lcd.print(MY_F(" mph  "));
 
     double power_display = power;
     if (power_display > 999)
@@ -926,23 +926,22 @@ static void drawSpeed(float speed, byte xpos, byte ypos) //print the speed in bi
     lcd.setCursorInPixels(xpos+23,ypos);
     lcd.drawBitmap(bitmapBigNumber[speed_digits%10], 9,2);
     lcd.setCursorInPixels(xpos+33,ypos);
-    lcd.drawBitmap(bitmapBigkmh_p, 9,2);
 }
 
 static void printTripDistance(float km)  // print distance in exactly 6 characters, left aligned: "1234km" or "123km " or "12,1km" or "9,1km "
 {
-    if (km<10.0) {lcd.print(km,1); lcd.print(MY_F("km "));}
+    if (km<10.0) {lcd.print(km,1); lcd.print(MY_F("mi "));}
     else
     {
         if (km<100)
-        {lcd.print(km,1); lcd.print(MY_F("km"));}
+        {lcd.print(km,1); lcd.print(MY_F("mi"));}
         else
         {
             if(km<1000.0)
             {
-                lcd.print(km,0); lcd.print(MY_F("km "));
+                lcd.print(km,0); lcd.print(MY_F("mi "));
             }
-            else {lcd.print(km,0); lcd.print(MY_F("km"));}
+            else {lcd.print(km,0); lcd.print(MY_F("mi"));}
         }
     }
 }
@@ -960,7 +959,7 @@ static void display_nokia_setup_main()    //setup main view of nokia display
     lcd.setCursor(12,1);
     lcd.print(MY_F("Wh"));
     lcd.setCursor(0,2);
-    lcd.print(MY_F(" SPD   KM  CAD"));
+    lcd.print(MY_F(" SPD   MI  CAD"));
     lcd.setCursor(12,4);
     lcd.write(0);
     lcd.write(1);
@@ -1046,7 +1045,7 @@ static void display_nokia_view_main()
     lcd.print(MY_F(" "));
 #endif
     lcd.print(range,0);
-    lcd.print(MY_F("km "));
+    lcd.print(MY_F("mi "));
 #if HARDWARE_REV >=2
     lcd.setCursor(13,5);
     if (digitalRead(bluetooth_pin)==1)
@@ -1062,7 +1061,7 @@ static void display_nokia_view_graphic()
 {
     //print range in km in the top left corner
     lcd.setCursorInPixels(0,0);
-    lcd.print(range,0); lcd.print(MY_F("km "));
+    lcd.print(range,0); lcd.print(MY_F("mi "));
 
     lcd.setCursorInPixels(42-10,0);
     if(brake_stat==0) //if brake is active
@@ -1199,7 +1198,7 @@ static void display_nokia_view_odometer()
     lcd.setCursor(0,3);
     lcd.print(MY_F("ODO: "));
     lcd.print(odo/1000.0*wheel_circumference,1);
-    // lcd.print(MY_F(" km"));
+    // lcd.print(MY_F(" mi"));
 }
 #endif
 
