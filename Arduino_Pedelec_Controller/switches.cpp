@@ -86,7 +86,7 @@ void action_set_soft_poti(int new_throttle_stat)
     defined(SUPPORT_FIRST_AID_MENU)
     int power_poti;
     byte i=0;
-    char buffer[12]="Poti       ";
+    char buffer[12]="Watt       ";
 
     // Set soft poti if throttle value changed
     if (poti_stat != new_throttle_stat)
