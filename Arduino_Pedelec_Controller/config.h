@@ -93,8 +93,8 @@ const switch_name MENU_BUTTON_DOWN = SWITCH_DISPLAY1;
 //              ACTION_DISPLAY_PREV_VIEW, ACTION_DISPLAY_NEXT_VIEW
 //
 //              "Double speed" motor gear shift:
-//              ACTION_GEAR_SHIFT_LOW, ACTION_GEAR_SHIFT_HIGH, ACTION_GEAR_SHIFT_AUTO
-//              ACTION_GEAR_SHIFT_TOGGLE_LOW_HIGH, ACTION_GEAR_SHIFT_TOGGLE_LOW_HIGH_AUTO
+//              ACTION_SPEED_SWITCH_LOW, ACTION_SPEED_SWITCH_HIGH, ACTION_SPEED_SWITCH_AUTO
+//              ACTION_SPEED_SWITCH_TOGGLE_LOW_HIGH, ACTION_SPEED_SWITCH_TOGGLE_LOW_HIGH_AUTO
 //
 // The file "switches_action.h" contains a list with descriptions.
 //
@@ -170,9 +170,9 @@ const int fixed_throttle_in_watts = 250;         //number of watts to set as thr
 const byte battery_charged_min_voltage = 20;  //minimum battery voltage to consider it charged. Useful to prevent "false positives".
 //#define SUPPORT_BATTERY_CHARGE_COUNTER //support charge counter for battery cycles. is increased every time a regarge is detected.
 
-//#define SUPPORT_GEAR_SHIFT                 //support shifting gears on the "double speed" motor
-const byte gear_shift_pin_low_gear = 5;      //pin that connect to the low gear signal ("red" cable)
-const byte gear_shift_pin_high_gear = 7;     //pin that connects to the high gear signal ("green" cable)
+//#define SUPPORT_SPEED_SWITCH                 //support shifting gears on the "double speed" motor
+const byte speed_switch_pin_low_speed = 5;      //pin that connect to the low gear signal ("red" cable)
+const byte speed_switch_pin_high_speed = 7;     //pin that connects to the high gear signal ("green" cable)
 
 //#define SUPPORT_TEMP_SENSOR                //uncomment if you want to use a DS18x20 temperature sensor
 const byte temp_pin = A2;                     //pin connected to Data pin of the DS18x20 temperature Sensor
@@ -272,10 +272,10 @@ const char msg_deactivated[] PROGMEM = "Deactivated";
 const char msg_torquezero[] PROGMEM = "Re-zero torque sensor";
 #endif
 
-#ifdef SUPPORT_GEAR_SHIFT
-const char msg_gear_shift_low_gear[] PROGMEM = "Low gear active";
-const char msg_gear_shift_high_gear[] PROGMEM = "High gear active";
-const char msg_gear_shift_auto_selection[] PROGMEM = "Auto gear shift";
+#ifdef SUPPORT_SPEED_SWITCH
+const char msg_speed_switch_1[] PROGMEM = "Low gear active";
+const char msg_speed_switch_2[] PROGMEM = "High gear active";
+const char msg_speed_switch_auto_selection[] PROGMEM = "Auto gear shift";
 #endif
 
 #endif

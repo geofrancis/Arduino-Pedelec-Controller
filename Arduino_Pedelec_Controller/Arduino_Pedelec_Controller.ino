@@ -455,12 +455,12 @@ pinMode(option_pin,OUTPUT); //make torque pin on Thun connector to 5V source for
 digitalWrite(option_pin,HIGH);
 #endif
 
-#ifdef SUPPORT_GEAR_SHIFT
-    pinMode(gear_shift_pin_low_gear, OUTPUT);
-    pinMode(gear_shift_pin_high_gear, OUTPUT);
+#ifdef SUPPORT_SPEED_SWITCH
+    pinMode(speed_switch_pin_low_speed, OUTPUT);
+    pinMode(speed_switch_pin_high_speed, OUTPUT);
     // set to auto mode
-    digitalWrite(gear_shift_pin_low_gear, HIGH);
-    digitalWrite(gear_shift_pin_high_gear, HIGH);
+    digitalWrite(speed_switch_pin_low_speed, HIGH);
+    digitalWrite(speed_switch_pin_high_speed, HIGH);
 #endif
 
     read_eeprom();      //read stored variables
