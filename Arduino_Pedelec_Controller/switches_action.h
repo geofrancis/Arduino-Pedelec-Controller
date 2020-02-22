@@ -44,11 +44,11 @@ enum sw_action { ACTION_NONE=0,                // do nothing
                  ACTION_FIXED_THROTTLE_VALUE,  // set a fixed throttle value while switch is hold down (=emulate starting aid)
                  ACTION_DISPLAY_PREV_VIEW,     // go to prev view in display. Rools over if at the beginning
                  ACTION_DISPLAY_NEXT_VIEW,     // go the new view in display. Rolls over if at the end
-                 ACTION_SPEED_SWITCH_LOW,                   // gear shift: shift to low gear
-                 ACTION_SPEED_SWITCH_HIGH,                  // gear shift: shift to high gear
-                 ACTION_SPEED_SWITCH_AUTO,                  // gear shift: shift motor controller to "auto" mode
-                 ACTION_SPEED_SWITCH_TOGGLE_LOW_HIGH,       // gear shift: toggle between low and high
-                 ACTION_SPEED_SWITCH_TOGGLE_LOW_HIGH_AUTO,   // gear shift: toggle between low, high and auto
+ //                ACTION_GEAR_SHIFT_LOW,                   // gear shift: shift to low gear
+ //                ACTION_GEAR_SHIFT_HIGH,                  // gear shift: shift to high gear
+ //                ACTION_GEAR_SHIFT_AUTO,                  // gear shift: shift motor controller to "auto" mode
+ //                ACTION_GEAR_SHIFT_TOGGLE_LOW_HIGH,       // gear shift: toggle between low and high
+                 ACTION_GEAR_SHIFT_TOGGLE_LOW_HIGH_AUTO,   // gear shift: toggle between low, high and auto
                  ACTION_TORQUE_ZERO            // Re-zero torque sensor
                };
 
