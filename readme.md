@@ -3,6 +3,23 @@ Software for the Pedelec/E-Bike controller based on Arduino hardware, see www.pe
 translated to english and converted to miles, math is still in km so change your wheel circumferance by 0.63 to compensate.
 
 Pin Assignments 1.1-1.5 atmega 328
+nokia lcd 4 pin
+>D8	switch 1
+D9	SCLK
+D10	SDIN
+D11	DC
+D12	Switch 2
+D13	Reset
+
+Nokia LCD 5 pin (backlight control)
+>D8	switch 1
+D9	SCLK
+D10	SDIN
+D11	DC
+D12	Reset
+D13	SCE
+
+
 1.1
 >A0	Analog option
 A1	Voltage read-Pin
