@@ -218,8 +218,8 @@ static void action_toggle_lights()
 #endif
 
 #ifdef SUPPORT_SPEED_SWITCH
-enum speed_switch { GEAR_1=0, GEAR_2, GEAR_3, _GEAR_END };
-speed_switch current_gear = GEAR_3;
+enum speed_switch { SPEED_1=0, SPEED_2, SPEED_3, _SPEED_END };
+speed_switch current_gear = SPEED_3;
 
 static void action_set_gear(const speed_switch &new_gear)
 {
@@ -227,19 +227,19 @@ static void action_set_gear(const speed_switch &new_gear)
 
     switch(current_gear)
     {
-        case GEAR_1:
+        case SPEED_1:
             digitalWrite(speed_switch_pin_low_speed, LOW);
             digitalWrite(speed_switch_pin_high_speed, HIGH);
 
             display_show_important_info(FROM_FLASH(msg_speed_switch_1), 0);
             break;
-        case GEAR_2:
+        case SPEED_2:
             digitalWrite(speed_switch_pin_low_speed, LOW);
             digitalWrite(speed_switch_pin_high_speed, LOW);
 
             display_show_important_info(FROM_FLASH(msg_speed_switch_2), 0);
             break;
-        case GEAR_3:
+        case SPEED_3:
         default:
             digitalWrite(speed_switch_pin_low_speed, HIGH);
             digitalWrite(speed_switch_pin_high_speed, LOW);
@@ -254,12 +254,12 @@ static void action_toggle_gear(bool include_auto)
     byte conv = static_cast<byte>(current_gear);
     speed_switch next_gear = static_cast<speed_switch>(conv+1);
 
-    if (!include_auto && next_gear == GEAR_3)
-        next_gear = GEAR_1;
+    if (!include_auto && next_gear == SPEED_3)
+        next_gear = SPEED_1;
 
     // Safety protection and roll over in "include_auto" mode
-    if (next_gear == _GEAR_END)
-        next_gear = GEAR_1;
+    if (next_gear == _SPEED_END)
+        next_gear = SPEED_1;
 
     action_set_gear(next_gear);
 }
@@ -322,13 +322,13 @@ static void execute_action(const sw_action action)
             break;
 #ifdef SUPPORT_SPEED_SWITCH
         case ACTION_SPEED_SWITCH_LOW:
-            action_set_gear(GEAR_1);
+            action_set_gear(SPEED_1);
             break;
         case ACTION_SPEED_SWITCH_HIGH:
-            action_set_gear(GEAR_2);
+            action_set_gear(SPEED_2);
             break;
         case ACTION_SPEED_SWITCH_AUTO:
-            action_set_gear(GEAR_3);
+            action_set_gear(SPEED_3);
             break;
         case ACTION_SPEED_SWITCH_TOGGLE_LOW_HIGH:
             action_toggle_gear(false);
